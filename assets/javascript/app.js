@@ -3,7 +3,6 @@
     // GLOBAL VARIABLES
     var correctAnswers = 0;
     var wrongAnswers = 0;
-    var unanswered = 0;
     var currentQuestion = 0;
 
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
@@ -47,6 +46,7 @@
     })
 
     function generateQuestions(questions) {
+        $("#quiz").empty();
 
         // make roud div
         var round = $("<div>");
@@ -90,7 +90,7 @@
         $("#quiz").append(round);  
 
         // update tracker for which quesiton we are on
-        currentQuestion += 1;
+        
 
         isCorrect()
 
@@ -100,7 +100,27 @@
         $(".answers").on("click", function (event) {
             var guess = $(this).attr("value");
             console.log(guess);
+            if (guess === questions[currentQuestion].correctAnswer) {
+                correctAnswers += 1;
+                winning();
+            }
+            else {
+                wrongAnswers += 1;
+                losing();
+            }
         })
+    }
+
+    function winning() {
+        currentQuestion += 1;
+        alert("you got it right");
+        generateQuestions(questions);
+    }
+
+    function losing() {
+        currentQuestion += 1;
+        alert("sorry, wrong");
+        generateQuestions(questions);
     }
 
     
