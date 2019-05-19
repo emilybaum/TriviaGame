@@ -130,6 +130,8 @@ $(document).ready(function () {
 
     function generateQuestions(questions) {
         $("#quiz").empty();
+        $("#timer").addClass("d-block");
+
 
         // CREATE ROUND DIV
         var round = $("<div>");
@@ -180,7 +182,8 @@ $(document).ready(function () {
 
         isCorrect();
 
-    } // end generateQuestions()
+    } // end generateQuestions
+    
 
     function isCorrect() {
         $(".answers").on("click", function (event) {

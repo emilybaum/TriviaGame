@@ -5,7 +5,7 @@ font-family: 'Josefin Slab', serif;
 font-family: 'Oswald', sans-serif;
  */
 
- .container {
+.container {
      height: 95vh;
  }
 
@@ -29,7 +29,6 @@ h1 {
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
-    align-content: center;
     width: 500px;
 }
 
@@ -84,11 +83,30 @@ button.answers {
     justify-content: center;
 }
 
+.tracker {
+    font-family: 'Open Sans Condensed', sans-serif;
+    display: block;
+    flex-direction: column;
+}
+
+#timer {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
 #playAgain {
     display: flex;
+    margin: 10px;
+}
 
+.total {
+    display: flex;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 50px;
+    margin: 10px;
+    text-align: center;
 }
 
 footer p {
     font-size: 14px;
+    text-align: center;
 }

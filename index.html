@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pizza Trivia</title>
+    <title>Around the World Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link
@@ -30,7 +30,13 @@
         <!-- main quiz div -->
         <div class="row">
             <div class="col-sm-12">
-                <div id="timer">Time remaining: <span id="time-remaining"></span></div>
+                <div id="timer" class="d-none">Time remaining: <span id="time-remaining"></span>
+                
+                <!-- <progress value="0" max="10" id="progressBar"></progress> -->
+                
+                </div>
+                <div class="total mx-auto d-none">You got <span id="total-score"></span>% correct</div>
+                <button type="button" id="playAgain" class="btn btn-primary mx-auto d-none">Play Again?</button>
                 <div id="quiz">
                     <div class="startingPage">
                         <h2 class="mx-auto instructions">Test your knowlegde about the following landmarks around the world and see how many you know!</h2>
@@ -40,6 +46,12 @@
                         <button type="button" id="startButton" class="btn btn-primary mx-auto instructions">Start</button>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="tracker d-none">Correct so far: <span id="correct-answers"></span></div>
+                <div class="tracker d-none">Wrong so far: </span><span id="wrong-answers"></span></div>
             </div>
         </div>
         <!-- end main quiz div -->
@@ -56,12 +68,9 @@
     
     
 
-    <div class="total d-none">You got <span id="total-score"></span>% correct</div>
+    
 
-    <button type="button" id="playAgain" class="btn btn-primary d-none">Play Again?</button>
-
-    <div class="tracker d-none">Correct so far: <span id="correct-answers"></span></div>
-    <div class="tracker d-none">Wrong so far: </span><span id="wrong-answers"></span></div>
+    
 
 
     <footer>
