@@ -25,7 +25,7 @@ $(document).ready(function () {
             answers: {
                 a: "Italy",
                 b: "China",
-                c: "Japan",
+                c: "Ecuador",
                 d: "Korea",
             },
             correctAnswer: "China",
@@ -34,100 +34,101 @@ $(document).ready(function () {
         {
             question: "Where is the Kremlin?",
             answers: {
-                a: "#",
-                b: "#",
-                c: "#",
+                a: "Poland",
+                b: "Kuwait",
+                c: "Iran",
                 d: "Russia",
             },
             correctAnswer: "Russia",
             hint: "../images/kremlin.jpg",
         },
-        // {
-        //     question: "Where is the Leaning Tower of Pisa?",
-        //     answers: {
-        //         a: "#",
-        //         b: "#",
-        //         c: "Italy",
-        //         d: "#",
-        //     },
-        //     correctAnswer: "Italy",
-        //     hint: "../images/tower-of-pisa.jpg",
-        // },
-        // {
-        //     question: "Where is Great Pyramid of Giza?",
-        //     answers: {
-        //         a: "Egypt",
-        //         b: "#",
-        //         c: "#",
-        //         d: "#",
-        //     },
-        //     correctAnswer: "Egypt",
-        //     hint: "../images/giza.jpg",
-        // },
-        // {
-        //     question: "Where is the Sydney Opera House?",
-        //     answers: {
-        //         a: "#",
-        //         b: "#",
-        //         c: "Australia",
-        //         d: "#",
-        //     },
-        //     correctAnswer: "Australia",
-        //     hint: "../images/opera-house.jpg",
-        // },
-        // {
-        //     question: "Where is the Statue of Liberty?",
-        //     answers: {
-        //         a: "#",
-        //         b: "United States",
-        //         c: "#",
-        //         d: "#",
-        //     },
-        //     correctAnswer: "United States",
-        //     hint: "../images/statue-of-liberty.jpg",
-        // },
-        // {
-        //     question: "Where is the Taj Mahal?",
-        //     answers: {
-        //         a: "India",
-        //         b: "#",
-        //         c: "#",
-        //         d: "#",
-        //     },
-        //     correctAnswer: "India",
-        //     hint: "../images/taj-mahal.jpg",
-        // },
-        // {
-        //     question: "Where are the Moai Statues?",
-        //     answers: {
-        //         a: "#",
-        //         b: "#",
-        //         c: "#",
-        //         d: "Easter Island/Chile",
-        //     },
-        //     correctAnswer: "Easter Island/Chile",
-        //     hint: "../images/moai-statues.jpg",
-        // },
-        // {
-        //     question: "Where is Machu Picchu?",
-        //     answers: {
-        //         a: "#",
-        //         b: "#",
-        //         c: "#",
-        //         d: "Peru",
-        //     },
-        //     correctAnswer: "Peru",
-        //     hint: "../images/machu-piccu.jpg",
-        // },
+        {
+            question: "Where is the Leaning Tower of Pisa?",
+            answers: {
+                a: "Australia",
+                b: "France",
+                c: "Italy",
+                d: "Ecuador",
+            },
+            correctAnswer: "Italy",
+            hint: "../images/tower-of-pisa.jpg",
+        },
+        {
+            question: "Where is Great Pyramid of Giza?",
+            answers: {
+                a: "Egypt",
+                b: "Tunisia",
+                c: "Portugal",
+                d: "Argentina",
+            },
+            correctAnswer: "Egypt",
+            hint: "../images/giza.jpg",
+        },
+        {
+            question: "Where is the Sydney Opera House?",
+            answers: {
+                a: "Guam",
+                b: "Netherlands",
+                c: "Australia",
+                d: "Paraguay",
+            },
+            correctAnswer: "Australia",
+            hint: "../images/opera-house.jpg",
+        },
+        {
+            question: "Where is the Statue of Liberty?",
+            answers: {
+                a: "France",
+                b: "United States",
+                c: "Gibraltar",
+                d: "Uganda",
+            },
+            correctAnswer: "United States",
+            hint: "../images/statue-of-liberty.jpg",
+        },
+        {
+            question: "Where is the Taj Mahal?",
+            answers: {
+                a: "India",
+                b: "Ethiopia",
+                c: "Latvia",
+                d: "Yemen",
+            },
+            correctAnswer: "India",
+            hint: "../images/taj-mahal.jpg",
+        },
+        {
+            question: "Where are the Moai Statues?",
+            answers: {
+                a: "Argentina",
+                b: "Sudan",
+                c: "Norfolk Island/Australia",
+                d: "Easter Island/Chile",
+            },
+            correctAnswer: "Easter Island/Chile",
+            hint: "../images/moai-statues.jpg",
+        },
+        {
+            question: "Where is Machu Picchu?",
+            answers: {
+                a: "Côte d'Ivoire",
+                b: "Namibia",
+                c: "Zimbabwe",
+                d: "Peru",
+            },
+            correctAnswer: "Peru",
+            hint: "../images/machu-piccu.jpg",
+        },
     ];
 
-// GENERATE QUIZ
+    // CLICKING THE START BUTTON
     $("#startButton").on("click", function (event) {
         $("#quiz").empty();
         $("#startButton").addClass("d-none")
         generateQuestions(questions)
     })
 
+    // MAIN GAME FUNCITON TO DISPLAY QUESTION AND ANSWERS ON DOM
     function generateQuestions(questions) {
         $("#quiz").empty();
         $("#timer").addClass("d-block");
@@ -184,7 +185,7 @@ $(document).ready(function () {
 
     } // end generateQuestions
     
-
+    // DETERMIN CORRET OR INCORRECT GUESS
     function isCorrect() {
         $(".answers").on("click", function (event) {
             var guess = $(this).attr("value");
@@ -202,16 +203,17 @@ $(document).ready(function () {
         })
     }
 
+    // TRIGGER IF GUESS IS CORRECT
     function winning() {
         $("#quiz").empty();
         $("#youGotItRight").addClass("d-block");
         
         setTimeout(function () {
             startNewRound(questions)
-        }, 3000)
-        
+        }, 3000) 
     }
 
+    // TRIGGER IF GUESS IS WRONG
     function losing() {
         $("#quiz").empty();
         $("#youGotItWrong").addClass("d-block");
@@ -221,6 +223,7 @@ $(document).ready(function () {
         }, 3000)
     }
 
+    // ADVANCES TO THE NEXT QUESTION
     function startNewRound(questions) {
         currentQuestion += 1;
 
@@ -235,16 +238,19 @@ $(document).ready(function () {
         } 
     }
 
+    // GAME OVER
     function gameIsOver() {
         $("#quiz").empty();
         $("#youGotItRight").removeClass("d-block");
         $("#youGotItWrong").removeClass("d-block");
+        $("#timer").removeClass("d-block");
         $(".total").addClass("d-block");
         $("#playAgain").addClass("d-block");
         $(".tracker").addClass("d-none");
         $("#total-score").html(Math.floor(correctAnswers / (correctAnswers + wrongAnswers) * 100))  
     }
 
+    // RESETS THE GAME TO PLAY AGAIN
     $("#playAgain").on("click", function (event) {
         $("#quiz").empty();
         correctAnswers = 0;
@@ -256,11 +262,5 @@ $(document).ready(function () {
         $(".total").removeClass("d-block");
         generateQuestions(questions)
     })
-    
-
-
-// SHOW HOW THEY DID
-
-
 
 })
