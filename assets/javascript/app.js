@@ -94,10 +94,11 @@ $(document).ready(function () {
         $("#quiz").append(round); 
 
         if (currentQuestion > 0) {
-            $(".tracker").removeClass("d-none")
+            $(".tracker").removeClass("d-none");
         }      
+        console.log("current question is " + currentQuestion);
 
-        isCorrect()
+        isCorrect();
 
     } // end generateQuestions()
 
@@ -130,6 +131,7 @@ $(document).ready(function () {
 
     function startNewRound(questions) {
         currentQuestion += 1;
+
         if (currentQuestion < questions.length) {
             generateQuestions(questions);
         }
@@ -139,9 +141,11 @@ $(document).ready(function () {
     }
 
     function gameIsOver() {
+        $("#quiz").empty();
         $("#playAgain").addClass("d-block");
         $(".tracker").addClass("d-none");
-        $("#total").addClass("d-block");
+        $("#total-score").html(Math.floor(correctAnswers / (correctAnswers + wrongAnswers) * 100))
+        $(".total").addClass("d-block");
         alert("the game is over");
     }
 
@@ -153,33 +157,13 @@ $(document).ready(function () {
         $("#correct-answers").html(correctAnswers);
         $("#wrong-answers").html(wrongAnswers);
         $("#playAgain").removeClass("d-block")
+        $(".total").removeClass("d-block");
         generateQuestions(questions)
     })
     
 
-// have placeholders for an indivial quiz question items in HTML
-// store queistons in an array of objects
-// ===========
-// START
-// start timer
-// dynamically fill in the details on HTML element for quesiton and answer options 
-// user will select answer for that quesiton
-// capture user repsonse (if correct add to correct number)
-// display right or wrong for response
-// show correct answer for 3 seconds
-// clear question detials 
-// advance to the next question in the array
-// go back to START
 
-// at the end of the quiz, referenc the correct number
-// show a start over button to reset the game
-
-
-
-
-// SHOW QUESTIONS
-
-// SHOW RESULTS
+// SHOW HOW THEY DID
 
 
 
