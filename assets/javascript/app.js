@@ -1,14 +1,16 @@
-// $(document).ready(function () {
+$(document).ready(function () {
 
     // GLOBAL VARIABLES
     var correctAnswers = 0;
     var wrongAnswers = 0;
     var currentQuestion = 0;
 
+
+
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
         {
-            question: "the answer is a",
+            question: "Here is the quesiton and the answer is a",
             answers: {
                 a: "hi",
                 b: "hello",
@@ -18,7 +20,7 @@
             correctAnswer: "hi",
         },
         {
-            question: "the answer is b",
+            question: "Here is the quesiton and the answer is b",
             answers: {
                 a: "one",
                 b: "two",
@@ -28,7 +30,7 @@
             correctAnswer: "two",
         },
         {
-            question: "the answer is c",
+            question: "Here is the quesiton and the answer is c",
             answers: {
                 a: "#",
                 b: "#",
@@ -42,22 +44,24 @@
 // GENERATE QUIZ
     $("#startButton").on("click", function (event) {
         $("#quiz").empty();
+        $("#startButton").addClass("d-none")
         generateQuestions(questions)
     })
 
     function generateQuestions(questions) {
         $("#quiz").empty();
 
-        // make roud div
+        // CREATE ROUND DIV
         var round = $("<div>");
         round.addClass("round");
 
-        // add quesiton info
+    
+        // QUESTIONS
         var currentQ = questions[currentQuestion].question;
         var containQ = $("<p>").text(currentQ);
         round.append(containQ);
 
-        // add answer info for a, b, c, d
+        // ANSWERS
         // a
         var answerA = questions[currentQuestion].answers.a;
         var containA = $("<button>").text(answerA);
@@ -86,11 +90,12 @@
         containD.attr("value", answerD);
         round.append(containD);
 
-        // print quesitons and answers on the DOM
-        $("#quiz").append(round);  
+        // DISPLAY ON DOM
+        $("#quiz").append(round); 
 
-        // update tracker for which quesiton we are on
-        
+        if (currentQuestion > 0) {
+            $(".tracker").removeClass("d-none")
+        }      
 
         isCorrect()
 
@@ -102,27 +107,54 @@
             console.log(guess);
             if (guess === questions[currentQuestion].correctAnswer) {
                 correctAnswers += 1;
+                $("#correct-answers").html(correctAnswers);
                 winning();
             }
             else {
                 wrongAnswers += 1;
+                $("#wrong-answers").html(wrongAnswers);
                 losing();
             }
         })
     }
 
     function winning() {
-        currentQuestion += 1;
         alert("you got it right");
-        generateQuestions(questions);
+        startNewRound(questions)
     }
 
     function losing() {
-        currentQuestion += 1;
-        alert("sorry, wrong");
-        generateQuestions(questions);
+        alert("sorry, the correct answer was " + questions[currentQuestion].correctAnswer);
+        startNewRound(questions)
     }
 
+    function startNewRound(questions) {
+        currentQuestion += 1;
+        if (currentQuestion < questions.length) {
+            generateQuestions(questions);
+        }
+        else {
+            gameIsOver()
+        } 
+    }
+
+    function gameIsOver() {
+        $("#playAgain").addClass("d-block");
+        $(".tracker").addClass("d-none");
+        $("#total").addClass("d-block");
+        alert("the game is over");
+    }
+
+    $("#playAgain").on("click", function (event) {
+        $("#quiz").empty();
+        correctAnswers = 0;
+        wrongAnswers = 0;
+        currentQuestion = 0;
+        $("#correct-answers").html(correctAnswers);
+        $("#wrong-answers").html(wrongAnswers);
+        $("#playAgain").removeClass("d-block")
+        generateQuestions(questions)
+    })
     
 
 // have placeholders for an indivial quiz question items in HTML
@@ -151,4 +183,4 @@
 
 
 
-// })
+})

@@ -7,21 +7,25 @@
     <title>Pizza Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
     
 
-    <button id="startButton">Start</button>
+    <button type="button" id="startButton" class="btn btn-primary">Start</button>
 
-    <div>Time remaining: </div>
-    <div id="quiz">click start to see the cheese</div>
+    <div id="timer">Time remaining: <span id="time-remaining"></span></div>
+    <div id="quiz">
+        <h1>Click start to see the questions</h1>
+    </div>
 
-    <button id="playAgain">Play Again?</button>
+    <button type="button" id="playAgain" class="btn btn-primary d-none">Play Again?</button>
 
-    <div id="results"></div>
+    <div class="tracker d-none">Correct so far: <span id="correct-answers"></span></div>
+    <div class="tracker d-none">Wrong so far: </span><span id="wrong-answers"></span></div>
+    <div class="total d-none">Your score: <span id="total-score"></span></div>
 
 
 
