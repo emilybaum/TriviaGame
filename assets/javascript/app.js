@@ -10,35 +10,115 @@ $(document).ready(function () {
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
         {
-            question: "Here is the quesiton and the answer is a",
+            question: "Where is the Eiffel Tower?",
             answers: {
-                a: "hi",
+                a: "France",
                 b: "hello",
                 c: "yes",
                 d: "no",
             },
-            correctAnswer: "hi",
+            correctAnswer: "France",
+            hint: "#",
         },
         {
-            question: "Here is the quesiton and the answer is b",
+            question: "Where is the Great Wall?",
             answers: {
                 a: "one",
-                b: "two",
+                b: "China",
                 c: "three",
                 d: "four",
             },
-            correctAnswer: "two",
+            correctAnswer: "China",
+            hint: "#",
         },
-        {
-            question: "Here is the quesiton and the answer is c",
-            answers: {
-                a: "#",
-                b: "#",
-                c: "c",
-                d: "#",
-            },
-            correctAnswer: "c",
-        },
+        // {
+        //     question: "Where is the Kremlin?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "Russia",
+        //     },
+        //     correctAnswer: "Russia",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
+        // {
+        //     question: "--------?",
+        //     answers: {
+        //         a: "#",
+        //         b: "#",
+        //         c: "#",
+        //         d: "#",
+        //     },
+        //     correctAnswer: "#",
+        //     hint: "#",
+        // },
     ]
 
 // GENERATE QUIZ
@@ -58,35 +138,35 @@ $(document).ready(function () {
     
         // QUESTIONS
         var currentQ = questions[currentQuestion].question;
-        var containQ = $("<p>").text(currentQ);
+        var containQ = $("<p class='mx-auto question'>").text(currentQ);
         round.append(containQ);
 
         // ANSWERS
         // a
         var answerA = questions[currentQuestion].answers.a;
-        var containA = $("<button>").text(answerA);
-        containA.addClass("answers");
+        var containA = $("<button type='button'>").text(answerA);
+        containA.addClass("mx-auto btn btn-light answers");
         containA.attr("value", answerA);
         round.append(containA);
 
         // b
         var answerB = questions[currentQuestion].answers.b;
-        var containB = $("<button>").text(answerB);
-        containB.addClass("answers");
+        var containB = $("<button type='button'>").text(answerB);
+        containB.addClass("mx-auto btn btn-light answers");
         containB.attr("value", answerB);
         round.append(containB);
 
         // c
         var answerC = questions[currentQuestion].answers.c;
-        var containC = $("<button>").text(answerC);
-        containC.addClass("answers");
+        var containC = $("<button type='button'>").text(answerC);
+        containC.addClass("mx-auto btn btn-light answers");
         containC.attr("value", answerC);
         round.append(containC);
 
         // d
         var answerD = questions[currentQuestion].answers.d;
-        var containD = $("<button>").text(answerD);
-        containD.addClass("answers");
+        var containD = $("<button type='button'>").text(answerD);
+        containD.addClass("mx-auto btn btn-light answers");
         containD.attr("value", answerD);
         round.append(containD);
 

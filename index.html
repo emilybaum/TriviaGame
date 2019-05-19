@@ -7,19 +7,54 @@
     <title>Pizza Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Josefin+Slab|Open+Sans+Condensed:300|Oswald&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 <body>
     
+    <div class="container">
+        <!-- title -->
+        <div class="row">
+            <header class="mx-auto">
+                <div class="col-sm-12">
+                    <h1>Which country in the world</h1>
+                </div>
+            </header>
+        </div>
+        <!-- end title -->
 
-    <button type="button" id="startButton" class="btn btn-primary">Start</button>
+        <!-- main quiz div -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="timer">Time remaining: <span id="time-remaining"></span></div>
+                <div id="quiz">
+                    <div class="startingPage">
+                        <h2 class="mx-auto instructions">Test your knowlegde about the following landmarks around the world and see how many you know!</h2>
+                    </div>
+                    <br>
+                    <div class="startingPage">
+                        <button type="button" id="startButton" class="btn btn-primary mx-auto instructions">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end main quiz div -->
 
-    <div id="timer">Time remaining: <span id="time-remaining"></span></div>
-    <div id="quiz">
-        <h1>Click start to see the questions</h1>
+
     </div>
+
+
+
+
+
+    
+
+    
+    
 
     <div class="total d-none">You got <span id="total-score"></span>% correct</div>
 
@@ -30,7 +65,7 @@
 
 
     <footer>
-        <p> <a href="http://www.kiwimagonline.com/EmailBlasts/2012/MomsMeet/sampling/annies/pizza-trivia.pdf">Quesitons from Annie's Homegrown Pizza</a></p>
+        <p>created by Emily Baumgartner</p>
     </footer>
 
     <script src="assets/javascript/app.js"></script>
