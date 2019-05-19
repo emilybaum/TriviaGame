@@ -19,9 +19,10 @@ header {
     margin: 50px;
 }
 
-h1 {
+#title {
     font-family: 'Fredericka the Great', cursive;
     font-size: 60px;
+    text-align: center;
 }
 
 .instructions {
@@ -63,13 +64,10 @@ button.answers {
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
-    width: 100px;
+    /* width: 100px; */
     text-align: center;
 }
 
-/* .btn {
-    text-align: center;;
-} */
 
 #quiz {
     display: flex;
@@ -109,4 +107,15 @@ button.answers {
 footer p {
     font-size: 14px;
     text-align: center;
+}
+
+#youGotItRight, #youGotItWrong {
+    font-family: 'Oswald', sans-serif;
+    font-size: 8px;
+    text-align: center;
+    background: #00001150;
+}
+
+i {
+    font-size: 40px;
 }

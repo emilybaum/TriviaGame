@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Josefin+Slab|Open+Sans+Condensed:300|Oswald&display=swap"
         rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -17,26 +18,51 @@
 <body>
     
     <div class="container">
-        <!-- title -->
+        <!-- start title -->
         <div class="row">
             <header class="mx-auto">
                 <div class="col-sm-12">
-                    <h1>Which country in the world</h1>
+                    <h1 id="title">Which country in the world</h1>
                 </div>
             </header>
         </div>
         <!-- end title -->
 
+
+
         <!-- main quiz div -->
         <div class="row">
             <div class="col-sm-12">
                 <div id="timer" class="d-none">Time remaining: <span id="time-remaining"></span>
-                
-                <!-- <progress value="0" max="10" id="progressBar"></progress> -->
-                
+                    <!-- <progress value="0" max="10" id="progressBar"></progress> -->
                 </div>
-                <div class="total mx-auto d-none">You got <span id="total-score"></span>% correct</div>
+
+                <!-- incremental correct or incorrect -->
+                <div class="row ">
+                    <div id="youGotItRight" class="col-sm-12 p-4 d-none">
+                        <h1>You got it!</h1>
+                        <br>
+                        <i class="em em-confetti_ball"></i>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div id="youGotItWrong" class="col-sm-12 p-4 d-none">
+                        <h1>Dang, that's wrong!</h1>
+                        <i class="em em-disappointed"></i>
+                    </div>
+                </div>
+                <!-- end -->
+
+                <!-- final % for how you did -->
+                <div class="total mx-auto d-none">
+                    You got <span id="total-score"></span>% correct
+                </div>
+                <!-- end -->
+
+                <!-- play again button -->
                 <button type="button" id="playAgain" class="btn btn-primary mx-auto d-none">Play Again?</button>
+                
+                <!-- quiz ID start -->
                 <div id="quiz">
                     <div class="startingPage">
                         <h2 class="mx-auto instructions">Test your knowlegde about the following landmarks around the world and see how many you know!</h2>
@@ -46,16 +72,18 @@
                         <button type="button" id="startButton" class="btn btn-primary mx-auto instructions">Start</button>
                     </div>
                 </div>
+                <!-- quiz ID end -->
             </div>
         </div>
+        
+        <!-- end main quiz div -->
+
         <div class="row">
             <div class="col-sm-12">
                 <div class="tracker d-none">Correct so far: <span id="correct-answers"></span></div>
                 <div class="tracker d-none">Wrong so far: </span><span id="wrong-answers"></span></div>
             </div>
         </div>
-        <!-- end main quiz div -->
-
 
     </div>
 
