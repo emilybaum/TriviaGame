@@ -15,6 +15,7 @@ $(document).ready(function () {
     var intervalId;
     var timer = 20;
 
+    // START TIMER
     function startTimer() {
         timer --;
         $("#time-remaining").text(timer);
@@ -23,9 +24,9 @@ $(document).ready(function () {
             losing();
             stopTimer();
         }
-        // console.log(timer); 
     }
 
+    // STOP TIMER
     function stopTimer() {
         clearInterval(intervalId);
         $("#time-remaining").empty()
@@ -33,7 +34,6 @@ $(document).ready(function () {
     }
 
     
-   
 
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
@@ -173,9 +173,8 @@ $(document).ready(function () {
         $("#quiz").empty();
         $("#timer").addClass("d-block");
 
-        // TIMER
+        // TIMER COUNTER IS SET
         intervalId = setInterval(startTimer, 1000);
-        console.log(intervalId)
 
         // CREATE ROUND DIV
         var round = $("<div>");
@@ -244,14 +243,14 @@ $(document).ready(function () {
             }
             else {
                 wrongAnswers += 1;
-                $("#wrong-answers").html(wrongAnswers);
-                $("#input-correct").text(questions[currentQuestion].correctAnswer);
+                // $("#wrong-answers").html(wrongAnswers);
+                // $("#input-correct").text(questions[currentQuestion].correctAnswer);
                 losing();
             }
         })
     }
 
-    // TRIGGER IF GUESS IS CORRECT
+    // TRIGGER IF GUESS IS CORRECT AND DISAPLY GIF
     function winning() {
         $("#quiz").empty();
         $("#youGotItRight").addClass("d-block");
@@ -264,10 +263,12 @@ $(document).ready(function () {
         }, 3000);
     }
 
-    // TRIGGER IF GUESS IS WRONG
+    // TRIGGER IF GUESS IS WRONG AND DISPLAY WHAT THE CORRECT ANSWER WAS
     function losing() {
         $("#quiz").empty();
         $("#youGotItWrong").addClass("d-block");
+        $("#wrong-answers").html(wrongAnswers);
+        $("#input-correct").text(questions[currentQuestion].correctAnswer);
 
         wrongSound.play();
 
