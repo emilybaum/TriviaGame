@@ -5,21 +5,29 @@ font-family: 'Josefin Slab', serif;
 font-family: 'Oswald', sans-serif;
  */
 
-#startButton {
+#startButton, #playAgain {
     display: flex;
     width: 200px;
     text-align: center;
+    display: inline-block;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 30px;
 }
 
-header {
-    margin: 30px;
-}
 
-#title {
+
+.title {
     font-family: 'Fredericka the Great', cursive;
     font-size: 60px;
     text-align: center;
+    margin: 50px;
 }
+
+.title-min {
+    margin: 20px;
+    font-size:20px;
+}
+
 
 .instructions {
     text-align: center;
@@ -37,7 +45,7 @@ header {
 p {
     color: black; 
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     /* text-align: center; */
 }
 
@@ -51,15 +59,15 @@ p {
 .question {
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
-    color: red;
+    color: #DC3545;
     flex-direction: column;
-    font-size: 35px;
+    font-size: 30px;
 }
 
 button.answers {
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     /* width: 100px; */
     text-align: center;
 }

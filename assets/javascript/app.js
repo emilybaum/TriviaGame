@@ -6,7 +6,9 @@ $(document).ready(function () {
     var currentQuestion = 0;
 
     var correctSound = new Audio("assets/javascript/sounds/jingle-win.wav");
-    var wrongSound = new Audio("assets/javascript/sounds/lose.wav")
+    var wrongSound = new Audio("assets/javascript/sounds/lose.wav");
+    var clickSound = new Audio("assets/javascript/sounds/click.mp3")
+    var endSound = new Audio("assets/javascript/sounds/end-game.flac")
 
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
@@ -126,8 +128,10 @@ $(document).ready(function () {
     // CLICKING THE START BUTTON
     $("#startButton").on("click", function (event) {
         $("#quiz").empty();
-        $("#startButton").addClass("d-none")
-        generateQuestions(questions)
+        $("#startButton").addClass("d-none");
+        $("#title-id").addClass("title-min");
+        clickSound.play();
+        generateQuestions(questions);
     })
 
     // MAIN GAME FUNCITON TO DISPLAY QUESTION AND ANSWERS ON DOM
@@ -217,7 +221,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             startNewRound(questions)
-        }, 3000);
+        }, 2000);
     }
 
     // TRIGGER IF GUESS IS WRONG
@@ -229,7 +233,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             startNewRound(questions)
-        }, 3000);
+        }, 2000);
     }
 
     // ADVANCES TO THE NEXT QUESTION
@@ -253,9 +257,15 @@ $(document).ready(function () {
         $("#youGotItRight").removeClass("d-block");
         $("#youGotItWrong").removeClass("d-block");
         $("#timer").removeClass("d-block");
+        $("#title-id").removeClass("title-min")
         $(".total").addClass("d-block");
         $("#playAgain").addClass("d-block");
         $(".tracker").addClass("d-none");
+        
+        setTimeout(function () {
+            endSound.play();
+        }, 500)
+        
         $("#total-score").html(Math.floor(correctAnswers / (correctAnswers + wrongAnswers) * 100))  
     }
 
@@ -267,8 +277,10 @@ $(document).ready(function () {
         currentQuestion = 0;
         $("#correct-answers").html(correctAnswers);
         $("#wrong-answers").html(wrongAnswers);
+        $("#title-id").addClass("title-min")
         $("#playAgain").removeClass("d-block")
         $(".total").removeClass("d-block");
+        clickSound.play();
         generateQuestions(questions)
     })
 
