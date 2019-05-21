@@ -5,31 +5,33 @@ $(document).ready(function () {
     var wrongAnswers = 0;
     var currentQuestion = 0;
 
-
+    var correctSound = new Audio("assets/javascript/sounds/jingle-win.wav");
+    var wrongSound = new Audio("assets/javascript/sounds/lose.wav")
 
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
         {
-            question: "Where is the Eiffel Tower?",
+            question: "In which city can you find the Upside Down Charles La Trobe Statue?",
             answers: {
-                a: "France",
-                b: "Spain",
-                c: "Paris, Texas",
-                d: "England",
+                a: "Paris, France",
+                b: "Melbourne, Australia",
+                c: "Caracas, Venezuela",
+                d: "Johannesburg, South Africa",
             },
-            correctAnswer: "France",
-            hint: src ="../images/eiffel-tower.jpg",
+            correctAnswer: "Melbourne, Australia",
+            image: "assets/images/la-trobe.jpg",
+            // description: ,
         },
         {
-            question: "Where is the Great Wall?",
+            question: "Where is the Crystal Shoe?",
             answers: {
                 a: "Italy",
-                b: "China",
+                b: "Taiwan",
                 c: "Ecuador",
                 d: "Korea",
             },
-            correctAnswer: "China",
-            hint: "../images/great-wall.jpg",
+            correctAnswer: "Taiwan",
+            image: "assets/images/crystal-shoe.jpg",
         },
         {
             question: "Where is the Kremlin?",
@@ -40,18 +42,29 @@ $(document).ready(function () {
                 d: "Russia",
             },
             correctAnswer: "Russia",
-            hint: "../images/kremlin.jpg",
+            image: "assets/images/kremlin.jpg",
         },
         {
-            question: "Where is the Leaning Tower of Pisa?",
+            question: "Where is the Gum Wall",
             answers: {
                 a: "Australia",
                 b: "France",
-                c: "Italy",
+                c: "Seattle, WA",
                 d: "Ecuador",
             },
-            correctAnswer: "Italy",
-            hint: "../images/tower-of-pisa.jpg",
+            correctAnswer: "Seattle, WA",
+            image: "assets/images/gum.jpg",
+        },
+        {
+            question: "Where is the Cinema at the end of the World?",
+            answers: {
+                a: "Sinai Desert, Egypt",
+                b: "Spain",
+                c: "Paris, Texas",
+                d: "England",
+            },
+            correctAnswer: "Sinai Desert, Egypt",
+            image: src = "assets/images/cinema.jpg",
         },
         {
             question: "Where is Great Pyramid of Giza?",
@@ -62,40 +75,29 @@ $(document).ready(function () {
                 d: "Argentina",
             },
             correctAnswer: "Egypt",
-            hint: "../images/giza.jpg",
+            image: "assets/images/giza.jpg",
         },
         {
-            question: "Where is the Sydney Opera House?",
+            question: "Where is the Hanging Rhino?",
             answers: {
                 a: "Guam",
                 b: "Netherlands",
-                c: "Australia",
+                c: "Potsdam, Germany",
                 d: "Paraguay",
             },
-            correctAnswer: "Australia",
-            hint: "../images/opera-house.jpg",
+            correctAnswer: "Potsdam, Germany",
+            image: "assets/images/rhino.jpg",
         },
         {
-            question: "Where is the Statue of Liberty?",
+            question: "Where is the Molinere Underwater Sculpture Park?",
             answers: {
-                a: "France",
-                b: "United States",
-                c: "Gibraltar",
-                d: "Uganda",
-            },
-            correctAnswer: "United States",
-            hint: "../images/statue-of-liberty.jpg",
-        },
-        {
-            question: "Where is the Taj Mahal?",
-            answers: {
-                a: "India",
+                a: "Grenada in the Caribbean",
                 b: "Ethiopia",
                 c: "Latvia",
                 d: "Yemen",
             },
-            correctAnswer: "India",
-            hint: "../images/taj-mahal.jpg",
+            correctAnswer: "Grenada in the Caribbean",
+            image: "assets/images/underwater.jpg",
         },
         {
             question: "Where are the Moai Statues?",
@@ -106,18 +108,18 @@ $(document).ready(function () {
                 d: "Easter Island/Chile",
             },
             correctAnswer: "Easter Island/Chile",
-            hint: "../images/moai-statues.jpg",
+            image: "assets/images/moai-statues.jpg",
         },
         {
-            question: "Where is Machu Picchu?",
+            question: "Where is the upside down house?",
             answers: {
                 a: "Côte d'Ivoire",
                 b: "Namibia",
                 c: "Zimbabwe",
-                d: "Peru",
+                d: "Austria",
             },
-            correctAnswer: "Peru",
-            hint: "../images/machu-piccu.jpg",
+            correctAnswer: "Austria",
+            image: "assets/images/upside-down.jpg",
         },
     ];
 
@@ -141,8 +143,11 @@ $(document).ready(function () {
     
         // QUESTIONS
         var currentQ = questions[currentQuestion].question;
+        var currentImage = questions[currentQuestion].image;
         var containQ = $("<p class='mx-auto question'>").text(currentQ);
+        var containImage = $("<img class='round-image'>").attr("src", currentImage)
         round.append(containQ);
+        round.append(containImage);
 
         // ANSWERS
         // a
@@ -185,7 +190,7 @@ $(document).ready(function () {
 
     } // end generateQuestions
     
-    // DETERMIN CORRET OR INCORRECT GUESS
+    // DETERMINE CORRET OR INCORRECT GUESS
     function isCorrect() {
         $(".answers").on("click", function (event) {
             var guess = $(this).attr("value");
@@ -207,10 +212,12 @@ $(document).ready(function () {
     function winning() {
         $("#quiz").empty();
         $("#youGotItRight").addClass("d-block");
-        
+
+        correctSound.play();
+
         setTimeout(function () {
             startNewRound(questions)
-        }, 3000) 
+        }, 3000);
     }
 
     // TRIGGER IF GUESS IS WRONG
@@ -218,9 +225,11 @@ $(document).ready(function () {
         $("#quiz").empty();
         $("#youGotItWrong").addClass("d-block");
 
+        wrongSound.play();
+
         setTimeout(function () {
             startNewRound(questions)
-        }, 3000)
+        }, 3000);
     }
 
     // ADVANCES TO THE NEXT QUESTION

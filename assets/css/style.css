@@ -5,10 +5,6 @@ font-family: 'Josefin Slab', serif;
 font-family: 'Oswald', sans-serif;
  */
 
-.container {
-     height: 95vh;
- }
-
 #startButton {
     display: flex;
     width: 200px;
@@ -16,7 +12,7 @@ font-family: 'Oswald', sans-serif;
 }
 
 header {
-    margin: 50px;
+    margin: 30px;
 }
 
 #title {
@@ -118,4 +114,8 @@ footer p {
 
 i {
     font-size: 40px;
+}
+
+.round-image {
+    height: 250px;
 }
