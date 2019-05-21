@@ -22,7 +22,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Melbourne, Australia",
             image: "assets/images/la-trobe.jpg",
-            // description: ,
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "Where can the Crystal Shoe be found?",
@@ -34,6 +34,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Taiwan",
             image: "assets/images/crystal-shoe.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "In which county can you find the Kremlin?",
@@ -45,6 +46,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Russia",
             image: "assets/images/kremlin.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "Where can you find the Gum Wall",
@@ -56,6 +58,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Seattle, Wshington, USA",
             image: "assets/images/gum.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "Where is the Cinema at the end of the World?",
@@ -67,6 +70,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Sinai Desert, Egypt",
             image: src = "assets/images/cinema.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "Where can you find the Hanging Rhino?",
@@ -78,6 +82,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Potsdam, Germany",
             image: "assets/images/rhino.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "What is the Great Pyramid of Giza?",
@@ -89,6 +94,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Egypt",
             image: "assets/images/giza.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "In what area can you find the Molinere Underwater Sculpture Park?",
@@ -100,6 +106,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Grenada in the Caribbean",
             image: "assets/images/underwater.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "Where are the Moai Statues?",
@@ -111,6 +118,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Easter Island, Chile",
             image: "assets/images/moai-statues.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
         {
             question: "in what country can you find this upside down house?",
@@ -122,6 +130,7 @@ $(document).ready(function () {
             },
             correctAnswer: "Austria",
             image: "assets/images/upside-down.jpg",
+            gifCorrect: "assets/images/you-got-it.gif",
         },
     ];
 
@@ -207,6 +216,7 @@ $(document).ready(function () {
             else {
                 wrongAnswers += 1;
                 $("#wrong-answers").html(wrongAnswers);
+                $("#input-correct").text(questions[currentQuestion].correctAnswer);
                 losing();
             }
         })
@@ -216,12 +226,13 @@ $(document).ready(function () {
     function winning() {
         $("#quiz").empty();
         $("#youGotItRight").addClass("d-block");
+        $("#input-you-got-it").attr("src", questions[currentQuestion].gifCorrect)
 
         correctSound.play();
 
         setTimeout(function () {
             startNewRound(questions)
-        }, 2000);
+        }, 3000);
     }
 
     // TRIGGER IF GUESS IS WRONG
@@ -233,7 +244,7 @@ $(document).ready(function () {
 
         setTimeout(function () {
             startNewRound(questions)
-        }, 2000);
+        }, 3000);
     }
 
     // ADVANCES TO THE NEXT QUESTION

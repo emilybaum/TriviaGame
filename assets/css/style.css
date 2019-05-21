@@ -120,6 +120,10 @@ footer p {
     background: #00001150;
 }
 
+#input-correct {
+    color: red;
+}
+
 i {
     font-size: 40px;
 }
