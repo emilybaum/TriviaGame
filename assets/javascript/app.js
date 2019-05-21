@@ -5,10 +5,35 @@ $(document).ready(function () {
     var wrongAnswers = 0;
     var currentQuestion = 0;
 
+    // SOUNDS VARIABLES
     var correctSound = new Audio("assets/javascript/sounds/jingle-win.wav");
     var wrongSound = new Audio("assets/javascript/sounds/lose.wav");
-    var clickSound = new Audio("assets/javascript/sounds/click.mp3")
-    var endSound = new Audio("assets/javascript/sounds/end-game.flac")
+    var clickSound = new Audio("assets/javascript/sounds/click.mp3");
+    var endSound = new Audio("assets/javascript/sounds/end-game.flac");
+
+    // TIMER VARIABLES
+    var intervalId;
+    var timer = 20;
+
+    function startTimer() {
+        timer --;
+        $("#time-remaining").text(timer);
+        if (timer === 0) {
+            wrongAnswers += 1;
+            losing();
+            stopTimer();
+        }
+        // console.log(timer); 
+    }
+
+    function stopTimer() {
+        clearInterval(intervalId);
+        $("#time-remaining").empty()
+        timer = 20;
+    }
+
+    
+   
 
     // ARRAY OF OBJECTS FOR ALL QUESTIONS
     var questions = [
@@ -148,12 +173,14 @@ $(document).ready(function () {
         $("#quiz").empty();
         $("#timer").addClass("d-block");
 
+        // TIMER
+        intervalId = setInterval(startTimer, 1000);
+        console.log(intervalId)
 
         // CREATE ROUND DIV
         var round = $("<div>");
         round.addClass("round");
 
-    
         // QUESTIONS
         var currentQ = questions[currentQuestion].question;
         var currentImage = questions[currentQuestion].image;
@@ -206,8 +233,10 @@ $(document).ready(function () {
     // DETERMINE CORRET OR INCORRECT GUESS
     function isCorrect() {
         $(".answers").on("click", function (event) {
+            stopTimer();
             var guess = $(this).attr("value");
             console.log(guess);
+
             if (guess === questions[currentQuestion].correctAnswer) {
                 correctAnswers += 1;
                 $("#correct-answers").html(correctAnswers);
@@ -264,6 +293,7 @@ $(document).ready(function () {
 
     // GAME OVER
     function gameIsOver() {
+
         $("#quiz").empty();
         $("#youGotItRight").removeClass("d-block");
         $("#youGotItWrong").removeClass("d-block");
