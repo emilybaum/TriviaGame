@@ -151,7 +151,7 @@ $(document).ready(function () {
             gifCorrect: "assets/images/you-got-it-9.gif",
         },
         {
-            question: "in what country can you find this upside down house?",
+            question: "In what country can you find this upside down house?",
             answers: {
                 a: "Côte d'Ivoire",
                 b: "Namibia",
