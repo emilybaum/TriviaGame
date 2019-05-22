@@ -19,6 +19,10 @@ $(document).ready(function () {
     function startTimer() {
         timer --;
         $("#time-remaining").text(timer);
+        if (timer <= 5) {
+            $("#time-remaining").addClass("timer-low")
+        }
+        
         if (timer === 0) {
             wrongAnswers += 1;
             losing();
@@ -30,6 +34,7 @@ $(document).ready(function () {
     function stopTimer() {
         clearInterval(intervalId);
         $("#time-remaining").empty()
+        $("#time-remaining").removeClass("timer-low")
         timer = 20;
     }
 

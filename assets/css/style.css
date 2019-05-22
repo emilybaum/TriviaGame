@@ -34,7 +34,7 @@ font-family: 'Oswald', sans-serif;
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 30px;
-    width: 500px;
+    width: 50%;
 }
 
 .startingPage {
@@ -94,6 +94,11 @@ button.answers {
     font-family: 'Open Sans Condensed', sans-serif;
 }
 
+.timer-low {
+    color: red;
+    font-size: 25px;
+}
+
 #playAgain {
     display: flex;
     margin: 10px;
@@ -128,5 +133,9 @@ i {
 }
 
 .round-image {
-    height: 250px;
+    width: 35%;
+}
+
+#input-you-got-it {
+    width: 40%;
 }
