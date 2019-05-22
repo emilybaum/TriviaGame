@@ -169,6 +169,7 @@ $(document).ready(function () {
         $("#quiz").empty();
         $("#startButton").addClass("d-none");
         $("#title-id").addClass("title-min");
+        $("#footer-text").removeClass("d-block");
         clickSound.play();
         generateQuestions(questions);
     })
@@ -308,6 +309,7 @@ $(document).ready(function () {
         $(".total").addClass("d-block");
         $("#playAgain").addClass("d-block");
         $(".tracker").addClass("d-none");
+        $("#footer-text").addClass("d-block");
         
         setTimeout(function () {
             endSound.play();
@@ -327,6 +329,7 @@ $(document).ready(function () {
         $("#title-id").addClass("title-min")
         $("#playAgain").removeClass("d-block")
         $(".total").removeClass("d-block");
+        $("#footer-text").removeClass("d-block");
         clickSound.play();
         generateQuestions(questions)
     })

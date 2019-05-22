@@ -46,7 +46,6 @@ p {
     color: black; 
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
-    /* text-align: center; */
 }
 
 .answers {
@@ -67,7 +66,6 @@ button.answers {
     display: flex;
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
-    /* width: 100px; */
     text-align: center;
 }
 
@@ -112,8 +110,11 @@ button.answers {
 }
 
 footer p {
-    font-size: 14px;
+    font-size: 12px;
     text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: #949494;
+    
 }
 
 #youGotItRight, #youGotItWrong {
